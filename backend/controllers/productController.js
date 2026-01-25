@@ -77,7 +77,7 @@ const removeProduct = async (req, res) => {
   }
 };
 
-// Insert a single product
+// Get a single product
 const singleProduct = async (req, res) => {
   try {
     const { productId } = req.body;
