@@ -7,6 +7,7 @@ import {
   userOrders,
   updateStatus,
   verifyStripe,
+  verifyRazorpay
 } from '../controllers/orderController.js';
 
 import adminAuth from '../middleware/adminAuth.js';
@@ -28,5 +29,6 @@ orderRouter.post('/userorders', authUser, userOrders);
 
 // Verify payment
 orderRouter.post('/verifyStripe', authUser, verifyStripe);
+orderRouter.post('/verifyRazorpay', authUser, verifyRazorpay);
 
 export default orderRouter;
