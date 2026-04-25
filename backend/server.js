@@ -11,12 +11,6 @@ import orderRouter from './routes/orderRoute.js';
 // App Config
 const app = express();
 const port = process.env.PORT || 4000;
-
-const allowedOrigins = [
-  'https://app-forever-admin.vercel.app',
-  'https://app-forever-frontend.vercel.app' 
-];
-
 connectDB();
 connectCloudinary()
 
@@ -25,12 +19,15 @@ app.use(express.json());
 // app.use(cors());
 
 app.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: [
+    'https://app-forever-admin.vercel.app',
+    'https://app-forever-frontend.vercel.app'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
 
-app.options('*', cors());
+app.options(/.*/, cors());
 
 // API endpoints
 app.use('/api/user', userRouter);
