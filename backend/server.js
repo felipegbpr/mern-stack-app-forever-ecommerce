@@ -16,7 +16,16 @@ connectCloudinary()
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+    origin: ["https://app-forever-admin.vercel.app", "https://your-other-frontend.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "token"], // Add "token" if you use it for admin auth
+    credentials: true
+}));
+
+app.options('*', cors());
 
 // API endpoints
 app.use('/api/user', userRouter);
