@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
     'https://app-forever-admin.vercel.app',
-    'https://app-forever-frontend.vercel.app'
+    'https://app-forever-frontend-n7f1cz4j2-felipegbprs-projects.vercel.app'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
